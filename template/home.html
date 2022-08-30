@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<!-- home section starts  -->
+
+<section class="home">
+    <div class="swiper home-slider">
+        <div class="swiper-wrapper">
+            <section
+                class="swiper-slide slide"
+                style="
+                    background: url(../static/image/slider_2.1.jpg) no-repeat;
+                "
+            >
+                <!-- <div class="content">
+                    <h3>
+                        Yorqin kelejak sari qo'yilgan birinchi qadamingiz bilan
+                        tabriklaymiz!
+                    </h3>
+                    <p>Biz bilan IT olamiga sayohat qilishga tayyormisiz?</p>
+                </div> -->
+            </section>
+
+            <section
+                class="swiper-slide slide"
+                style="
+                    background: url(../static/image/slider_2.2.jpg) no-repeat;
+                "
+            >
+                <!-- <div class="content">
+                    <h3>
+                        Yorqin kelejak sari qo'yilgan birinchi qadamingiz bilan
+                        tabriklaymiz!
+                    </h3>
+                    <p>Biz bilan IT olamiga sayohat qilishga tayyormisiz?</p>
+                </div> -->
+            </section>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!-- home section ends -->
+
+<!-- subjects section starts  -->
+
+<section class="subjects">
+    <h1 class="heading">mavjud kurslar</h1>
+
+    <div class="box-container">
+        {% for course in courses %}
+        <div class="box">
+            <img src="{{ course.image.url }}" alt="" />
+            <h3>{{ course.course_name }}</h3>
+            <p>{{ course.count_module }} modul</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- subjects section ends -->
+
+<!--  MAIN SECTION START -->
+
+<section class="main">
+    <div class="blogs">
+        <h3>So'nggi maqolalar</h3>
+        {% for item in blog %}
+        <div class="blog">
+            <div class="image">
+                <a href="{{item.get_absolute_url}}"><img  class="cr-p"  src="{{item.img.url}}" alt="" /></a>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <p class="cr-p"><i class="bi bi-calendar"></i> {{ item.date }}</p>
+                    <p>Kategoriya: {{ item.category_blog }}</p>
+                </div>
+                <h2 class="title cr-p"><a href="{{item.get_absolute_url}}">{{item.title}}</a></h2>
+                <h3 class="btn">Maqolani o'qish</h3>
+                <div class="row jc-end">
+                    <p class="cr-p" ><i class="fa-regular fa-thumbs-up"></i></i> {{ item.like }}</p>
+                    <p class="cr-p"><i class="fa-regular fa-thumbs-down"></i> {{ item.dislike }}</p>
+                    <p class="cr-p"><i class="bi bi-eye"></i> {{ item.popular }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="category_blog">
+        <div class="category">
+            <h3>Kategoriyalar</h3>
+                {% for category in category_blog %}
+                    <p  class="cr-p" ><a href="{{ category.get_absolute_url }}">{{category.title}}</p></a>
+                {% endfor %}
+        </div>
+        <div class="blog">
+            <h3>Ko'p o'qilgan maqolalar</h3>
+                {% for item in popular %}
+                    <p  class="cr-p" ><a href="{{item.get_absolute_url}}">{{item.title}}</p></a>
+                {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!--  MAIN SECTION START -->
+
+{% endblock %}

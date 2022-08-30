@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% load static %} {% block content %} 
+
+<!--  MAIN SECTION START -->
+
+<section class="main">
+    <div class="blogs">
+        <h3>{{category.title}}ga oid maqolalar</h3>
+        {% for item in blog %}
+        <div class="blog">
+            <div class="image">
+                <a href="{{item.get_absolute_url}}"><img class="cr-p" src="{{item.img.url}}" alt="" /></a>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <p class="cr-p"><i class="bi bi-calendar"></i> {{ item.date }}</p>
+                    <p>Kategoriya: {{ item.category_blog }}</p>
+                </div>
+                <a  class="title" href="{{item.get_absolute_url}}"><h2  class="cr-p"  class="title">{{item.title}}</h2></a>
+                <h3 class="btn">Maqolani o'qish</h3>
+                <div class="row jc-end">
+                    <p class="cr-p" ><i class="fa-regular fa-thumbs-up"></i></i> {{ item.like }}</p>
+                    <p class="cr-p"><i class="fa-regular fa-thumbs-down"></i> {{ item.dislike }}</p>
+                    <p class="cr-p"><i class="bi bi-eye"></i> {{ item.popular }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="category_blog">
+        <div class="category">
+            <h3>Kategoriyalar</h3>
+                {% for category in category_blog %}
+                    <p  class="cr-p" ><a href="{{ category.get_absolute_url }}">{{category.title}}</p></a>
+                {% endfor %}
+        </div>
+        <div class="blog">
+            <h3>Ko'p o'qilgan maqolalar</h3>
+                {% for item in popular %}
+                    <a href="{{item.get_absolute_url}}"><p  class="cr-p" >{{item.title}}</p></a>
+                {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!--  MAIN SECTION START -->
+
+{% endblock %}

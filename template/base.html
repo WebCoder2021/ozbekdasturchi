@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="" />
+        <title>O'zbek dasturchi</title>
+
+        <!-- bootstrap icon cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css">
+
+        <!-- font awesome cdn link  -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/regular.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+
+        <!-- static css file link -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.5/swiper-bundle.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.5/swiper-bundle.min.css">
+    </head>
+    <body>
+        <!-- header section starts  -->
+
+        <header class="header" id="header">
+            <span class="logo"><a href="{% url "home" %}" > O'zbek Dasturchi </a></span>
+
+            <nav class="navbar">
+                <div id="close-navbar" class="fas fa-times"></div>
+                <span  class="cr-p"><a href="{% url 'home' %}">Bosh sahifa</a></span>
+                <span class="cr-p"><a href="#footer">Aloqa</a></span>
+                <div class="box">
+                    <p>Ijtimoiy tarmoqlarda biz <br> bilan birga bo'ling!</p>
+                    <div class="share">
+                        <span class="fab fa-facebook-f cr-p"><a href=""  target="_blank"></a></span>
+                        <span class="fab fa-telegram cr-p"><a href="https://t.me/ozbekdasturchi" target="_blank" ></a></span>
+                        <span class="fab fa-instagram cr-p"><a href="" target="_blank"></a></span>
+                        <span  class="fab fa-youtube cr-p"><a target="_blank" href="https://www.youtube.com/channel/UCQWNsknpn-frQ0OiheXAeIQ"></a></span>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="icons">
+                <div id="menu-btn" class="fas fa-bars"></div>
+            </div>
+
+        </header>
+
+        <!-- header section ends -->
+
+        {% block content %} {% endblock %}
+
+        <!-- footer section starts  -->
+
+        <section id="footer" class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3><a href="{% url "home" %}"> O'zbek Dasturchi </a></h3>
+                    <p>Ijtimoiy tarmoqlarda biz bilan birga bo'ling!</p>
+                    <div class="share">
+                        <a href="https://www.facebook.com/ozbekdasturchi" target="_blank"><span class="fab fa-facebook-f  cr-p"></span></a>
+                        <a href="https://t.me/ozbekdasturchi" target="_blank" ><span class="fab fa-telegram cr-p"></span></a>
+                        <a href="" target="_blank" ><span class="fab fa-instagram cr-p"></span></a>
+                        <a href="https://www.youtube.com/channel/UCQWNsknpn-frQ0OiheXAeIQ"  target="_blank"><span class="fab fa-youtube cr-p"></span></a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Shior</h3>
+                    <p>Bir jamoa <br> Bir maqsad... <br> Bir harakat</p>
+                </div>
+            </div>
+        </section>
+        <div class="inner">
+            <h3>© 2022
+                <span  class="logo"> <a href="{% url "home" %}">  O'zbek Dasturchi </a></span>
+            Barcha huquqlar himoyalangan.</h3>
+        </div>
+
+        <!-- footer section ends -->
+
+        <!-- swiper js link  -->
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+        <!-- custom js file link  -->
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
